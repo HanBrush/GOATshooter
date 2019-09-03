@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Time : MonoBehaviour
 {
+    internal static float deltaTime;
+
     // Start is called before the first frame update
     void Start()
     {
