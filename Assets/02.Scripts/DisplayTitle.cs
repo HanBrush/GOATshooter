@@ -47,7 +47,7 @@ public Transform[] ballPos;
 
     void StartUI(){
         Hashtable ht = new Hashtable();
-        ht.Add("y", -0.1);
+        ht.Add("y", 0.7);
         ht.Add("time", 1.5f);
         ht.Add("easetype", iTween.EaseType.easeInQuart);
 

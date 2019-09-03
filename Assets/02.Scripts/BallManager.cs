@@ -36,7 +36,7 @@ public class BallManager : MonoBehaviour
     balls = GameObject.FindGameObjectsWithTag("BALL");
         if(balls.Length < 6) {
             for(int i = 0; i<6 ; i++){
-                Collider[] colls = Physics.OverlapSphere(spawnPoints[i].position,0.2f,1<<8);
+                Collider[] colls = Physics.OverlapSphere(spawnPoints[i].position,0.15f,1<<8);
                 if(colls.Length == 0){
                     Instantiate(basketball, spawnPoints[i].position, Quaternion.identity);
                 }

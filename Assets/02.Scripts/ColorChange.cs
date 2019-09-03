@@ -26,12 +26,13 @@ public class ColorChange : MonoBehaviour {
         hoop.GetComponent<MeshRenderer> ().material = darkRed;
         backBoardBig.GetComponent<MeshRenderer> ().material = material7;
         backBoardSmall.GetComponent<MeshRenderer> ().material = white;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             sparks[i].Stop ();
         }
         for (int i = 0; i < 2; i++) {
             flames[i].Stop ();
         }
+        MovingHoop.isMoving = false;
 
     }
 
@@ -39,18 +40,20 @@ public class ColorChange : MonoBehaviour {
         hoop.GetComponent<MeshRenderer> ().material = yellowLight;
         backBoardBig.GetComponent<MeshRenderer> ().material = yellowLight;
         backBoardSmall.GetComponent<MeshRenderer> ().material = yellowLight;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             sparks[i].Play ();}
 
             for (int i = 0; i < 2; i++) {
                 flames[i].Play ();
             }
+            MovingHoop.isMoving = true;
 
         }
     
 
     // Update is called once per frame
     void Update () {
+        
 
     }
 }
