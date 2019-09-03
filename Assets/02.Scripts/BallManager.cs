@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BallManager : MonoBehaviour
 {
-    public float spawnTime = 2.0f;
     public Transform[] spawnPoints;
 
     public GameObject basketball;
@@ -23,6 +22,7 @@ public class BallManager : MonoBehaviour
        
         // balls = GameObject.FindGameObjectsWithTag("BALL");
         // InvokeRepeating("Spawn",spawnTime,spawnTime);
+        
 
          
 
@@ -35,15 +35,16 @@ public class BallManager : MonoBehaviour
 
     balls = GameObject.FindGameObjectsWithTag("BALL");
         if(balls.Length < 6) {
-            Create();
+            for(int i = 0; i<6 ; i++){
+                Collider[] colls = Physics.OverlapSphere(spawnPoints[i].position,0.2f,1<<8);
+                if(colls.Length == 0){
+                    Instantiate(basketball, spawnPoints[i].position, Quaternion.identity);
+                }
+            }
+            
 
         }
     }
-
-    void Create(){
-        int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-        Instantiate(basketball, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-        }
 
        
     }
