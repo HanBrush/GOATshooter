@@ -5,18 +5,21 @@ using UnityEngine;
 public class MovingHoop : MonoBehaviour {
     float delta = -0.005f;
 
-    public Transform originalPos;
+    // Transform originalPos;
+
 
     public static bool isMoving = false;
     // Start is called before the first frame update
     void Start () {
-       
+
+        // Transform originalPos = GetComponent<Transform>();       
+       isMoving = false;
 
     }
 
     // Update is called once per frame
     void Update () {
-        if (isMoving) {
+        if (isMoving == true) {
             float newXPos = transform.position.x + delta;
             transform.position = new Vector3 (newXPos, transform.position.y, transform.position.z);
             if (transform.position.x <= 0) {
@@ -26,7 +29,7 @@ public class MovingHoop : MonoBehaviour {
             }
         } 
         else if (isMoving == false) {
-            transform.position = originalPos.position;
+            transform.localPosition = new Vector3(0.4204445f, 1.458009f, 1.486761f);
         }
     }
 }

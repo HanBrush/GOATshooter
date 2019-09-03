@@ -9,7 +9,11 @@ public class GoalDetect : MonoBehaviour
 
     
 
-    int score;
+    public static int score;
+
+    public GameObject openRockmode;
+
+    public GameObject unLock;
     
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,9 @@ public class GoalDetect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(score >= 10){
+            openRockmode.SetActive(true);
+            unLock.SetActive(false);
+        }
     }
 }

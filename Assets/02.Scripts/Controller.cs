@@ -32,6 +32,8 @@ public class Controller : MonoBehaviour {
     private GameObject prevButton;
     private GameObject currButton;
 
+    public GameObject lockDisplay;
+
     // public GameObject courtLight;
 
     void Start () {
@@ -60,6 +62,8 @@ public class Controller : MonoBehaviour {
             PointerEventData data = new PointerEventData (EventSystem.current);
             if (hit.collider.gameObject.layer == 10) {
                 currButton = hit.collider.gameObject;
+             
+                
                 if (currButton != prevButton) {
 
                     ExecuteEvents.Execute (currButton, data, ExecuteEvents.pointerEnterHandler);

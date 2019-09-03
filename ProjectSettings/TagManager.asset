@@ -12,6 +12,7 @@ TagManager:
   - MODECHANGE
   - COURTMODE
   - ROCKMODE
+  - ROCKMODELOCK
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - BALL
   - LAYER
   - MODE
-  - 
+  - LIGHT
   - 
   - 
   - 

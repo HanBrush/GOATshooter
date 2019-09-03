@@ -18,13 +18,22 @@ public class ColorChange : MonoBehaviour {
 
     public ParticleSystem[] flames;
 
-    public GameObject[] neon;
+    public GameObject lighting;
+
+  
+
+   
+
+    // public GameObject[] neon;
     // Start is called before the first frame update
     void Start () {
+
 
     }
 
     public void Courtmode () {
+        //불켜기&끄기
+        lighting.SetActive(true);
         // 농구골대 material 바꾸기
         hoop.GetComponent<MeshRenderer> ().material = darkRed;
         backBoardBig.GetComponent<MeshRenderer> ().material = material7;
@@ -45,12 +54,14 @@ public class ColorChange : MonoBehaviour {
         
 
         //네온사인
-        for(int neon_i = 0; neon_i<4; neon_i ++){
-        neon[neon_i].SetActive(true);}
+        // for(int neon_i = 0; neon_i<4; neon_i ++){
+        // neon[neon_i].SetActive(false);}
 
     }
 
     public void Rockmode () {
+lighting.SetActive(false);
+
         hoop.GetComponent<MeshRenderer> ().material = yellowLight;
         backBoardBig.GetComponent<MeshRenderer> ().material = yellowLight;
         backBoardSmall.GetComponent<MeshRenderer> ().material = yellowLight;
@@ -62,14 +73,15 @@ public class ColorChange : MonoBehaviour {
             }
             MovingHoop.isMoving = true;
 
-                    for(int neon_i = 0; neon_i<4; neon_i ++){
-        neon[neon_i].SetActive(false);}
+        //             for(int neon_i = 0; neon_i<4; neon_i ++){
+        // neon[neon_i].SetActive(true);}
 
         }
     
 
     // Update is called once per frame
     void Update () {
+
         
 
     }

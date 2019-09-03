@@ -16,10 +16,8 @@ void Start(){
     {
         if(other.gameObject.CompareTag("FLOOR"))
         {
- 
 
-            bEffect.Play();
-         
+            bEffect.Play();   
          
             
             
