@@ -17,22 +17,36 @@ public class ColorChange : MonoBehaviour {
     public Material yellowLight;
 
     public ParticleSystem[] flames;
+
+    public GameObject[] neon;
     // Start is called before the first frame update
     void Start () {
 
     }
 
     public void Courtmode () {
+        // 농구골대 material 바꾸기
         hoop.GetComponent<MeshRenderer> ().material = darkRed;
         backBoardBig.GetComponent<MeshRenderer> ().material = material7;
         backBoardSmall.GetComponent<MeshRenderer> ().material = white;
+
+        //스파크 튀기기
         for (int i = 0; i < 5; i++) {
             sparks[i].Stop ();
         }
+
+        //불꽃 나오기
         for (int i = 0; i < 2; i++) {
             flames[i].Stop ();
         }
+
+        //농구골대 움직임
         MovingHoop.isMoving = false;
+        
+
+        //네온사인
+        for(int neon_i = 0; neon_i<4; neon_i ++){
+        neon[neon_i].SetActive(true);}
 
     }
 
@@ -47,6 +61,9 @@ public class ColorChange : MonoBehaviour {
                 flames[i].Play ();
             }
             MovingHoop.isMoving = true;
+
+                    for(int neon_i = 0; neon_i<4; neon_i ++){
+        neon[neon_i].SetActive(false);}
 
         }
     
