@@ -13,6 +13,9 @@ TagManager:
   - COURTMODE
   - ROCKMODE
   - ROCKMODELOCK
+  - STARTBUTTON
+  - SETTINGBUTTON
+  - LEVEL
   layers:
   - Default
   - TransparentFX

@@ -70,20 +70,12 @@ public class ControllerforStartScene : MonoBehaviour {
                 }
 
                 if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
-                    ExecuteEvents.Execute (currButton, data, ExecuteEvents.pointerClickHandler);
+                    {ExecuteEvents.Execute (currButton, data, ExecuteEvents.pointerClickHandler);}
 
-                // if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && currButton.CompareTag("ROCKMODE"))
-                // {
-
-                //     Light courtLt = courtLight.GetComponent<Light>();
-                //     courtLt.enabled = false;                    
-                // }
+  
                 prevButton = currButton;
 
-                // if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && currButton.CompareTag("COURTMODE")){
-                //     Light courtLt = courtLight.GetComponent<Light>();
-                //     courtLt.enabled = true;   
-                // }
+     
 
             } 
             else {

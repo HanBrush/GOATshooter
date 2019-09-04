@@ -23,7 +23,7 @@ public class Controller : MonoBehaviour {
     //Raycast 했을 때 충돌한 지점의 점보를 반환할 구조체(Structure - "class와 비슷하지만 가벼운 것")
     private RaycastHit hit;
 
-    public float powerIncreaseDegree = 1.8f;
+    private float powerIncreaseDegree = 1.8f;
 
     GameObject movingB;
 
@@ -54,7 +54,7 @@ public class Controller : MonoBehaviour {
             //라인렌더러의 끝좌표 보정
             lineRenderer.SetPosition (1, new Vector3 (0, 0, hit.distance)); //hit.distance : laser가 맞은 지점까지의 거리
             //포인터의 끝좌표를 보정
-            pointer.transform.localPosition = tr.localPosition - Vector3.forward * 0.001f + new Vector3 (0, 0, hit.distance);
+            pointer.transform.localPosition = tr.localPosition - Vector3.forward * 0.003f + new Vector3 (0, 0, hit.distance);
             //포인터의 각도 수정
             pointer.transform.rotation = Quaternion.LookRotation (hit.normal); //hit.normal: 법선벡터 
 
@@ -69,23 +69,14 @@ public class Controller : MonoBehaviour {
 
                     ExecuteEvents.Execute (prevButton, data, ExecuteEvents.pointerExitHandler);
                 }
-                if (OVRInput.GetDown (OVRInput.Button.PrimaryIndexTrigger))
-                    ExecuteEvents.Execute (currButton, data, ExecuteEvents.pointerClickHandler);
+                if (OVRInput.GetDown (OVRInput.Button.PrimaryIndexTrigger)){
+                    ExecuteEvents.Execute (currButton, data, ExecuteEvents.pointerClickHandler);}
 
-                // if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && currButton.CompareTag("ROCKMODE"))
-                // {
+                                prevButton = currButton;
 
-                //     Light courtLt = courtLight.GetComponent<Light>();
-                //     courtLt.enabled = false;                    
-                // }
-                prevButton = currButton;
-
-                // if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && currButton.CompareTag("COURTMODE")){
-                //     Light courtLt = courtLight.GetComponent<Light>();
-                //     courtLt.enabled = true;   
-                // }
-
-            } else {
+            } 
+            else 
+            {
                 ChangeModeColorBack ();
             }
 
@@ -110,7 +101,7 @@ public class Controller : MonoBehaviour {
 
                 ReleaseBall ();
                 circleGauge._gaugeValue = 0;
-                powerIncreaseDegree = 1.0f;
+                powerIncreaseDegree = 1.8f;
 
             }
 
@@ -143,11 +134,11 @@ public class Controller : MonoBehaviour {
         circleGauge._gaugeValue += powerIncreaseDegree;
 
         if (circleGauge._gaugeValue >= 100) {
-            powerIncreaseDegree = -1.0f;
+            powerIncreaseDegree *= -1.0f;
         }
 
         if (circleGauge._gaugeValue <= 0) {
-            powerIncreaseDegree = 1.0f;
+            powerIncreaseDegree *= -1.0f;
         }
 
     }

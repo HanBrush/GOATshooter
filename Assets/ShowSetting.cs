@@ -9,6 +9,10 @@ public class ShowSetting : MonoBehaviour
 
 
     public GameObject settingCanvas;
+
+    public GameObject confirmLevelTwo;
+
+    
     void Start()
     {
         
@@ -17,7 +21,7 @@ public class ShowSetting : MonoBehaviour
     public void Showsetting()
     {
         Hashtable ht = new Hashtable();
-        ht.Add("x", -1.4f);
+        ht.Add("x", -1.1f);
         ht.Add("time", 1.0f);
         ht.Add("easetype", iTween.EaseType.easeOutQuad);
         ht.Add("oncompletetarget", this.gameObject);
@@ -28,11 +32,38 @@ public class ShowSetting : MonoBehaviour
     }
 
 
-    void SettingAppear(){
+    public void SettingAppear(){
 
         settingCanvas.SetActive(true);
 
     }
+
+    public void Backbutton(){
+        settingCanvas.SetActive(false);
+        Hashtable ht = new Hashtable();
+        ht.Add("x", 0.0f);
+        ht.Add("time", 1.0f);
+        ht.Add("easetype",iTween.EaseType.easeOutQuad);
+
+        iTween.MoveTo(startUI, ht);
+
+    }
+
+
+
+public void LevelsetOne(){
+    Level.level = 1;
+}
+    public void LevelsetTwo(){
+        Level.level =2 ;
+       
+    }
+
+public void LevelsetThree(){
+    Level.level = 3;
+
+}
+
 
 
 
