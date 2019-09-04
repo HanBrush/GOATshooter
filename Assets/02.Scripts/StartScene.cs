@@ -11,6 +11,7 @@ public class StartScene : MonoBehaviour
     }
     public void GotoPlayScene(){
         SceneManager.LoadScene("Play");
+        GoalDetect.score = 0;
     }
 
 public void GotoStartScene(){

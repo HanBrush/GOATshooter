@@ -8,9 +8,9 @@ public class Controller : MonoBehaviour {
     private Transform tr; //3 좌표를 가지고 옴
 
     //레이저의 거리
-    private float range = 2.0f; //10m
+    private float range = 10.0f; //10m
 
-    public Color defaultColor = Color.white;
+    // public Color defaultColor = Color.white;
 
     //머리리얼 로드
     private Material mt;
@@ -23,7 +23,7 @@ public class Controller : MonoBehaviour {
     //Raycast 했을 때 충돌한 지점의 점보를 반환할 구조체(Structure - "class와 비슷하지만 가벼운 것")
     private RaycastHit hit;
 
-    public float powerIncreaseDegree = 1.0f;
+    public float powerIncreaseDegree = 1.2f;
 
     GameObject movingB;
 
@@ -62,15 +62,14 @@ public class Controller : MonoBehaviour {
             PointerEventData data = new PointerEventData (EventSystem.current);
             if (hit.collider.gameObject.layer == 10) {
                 currButton = hit.collider.gameObject;
-             
-                
+
                 if (currButton != prevButton) {
 
                     ExecuteEvents.Execute (currButton, data, ExecuteEvents.pointerEnterHandler);
-                    
+
                     ExecuteEvents.Execute (prevButton, data, ExecuteEvents.pointerExitHandler);
                 }
-                if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+                if (OVRInput.GetDown (OVRInput.Button.PrimaryIndexTrigger))
                     ExecuteEvents.Execute (currButton, data, ExecuteEvents.pointerClickHandler);
 
                 // if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && currButton.CompareTag("ROCKMODE"))
@@ -105,21 +104,21 @@ public class Controller : MonoBehaviour {
                 }
 
             }
+            if (OVRInput.GetUp (OVRInput.Button.PrimaryIndexTrigger))
+            // if(Input.GetButtonUp("Fire1"))
+            {
+
+                ReleaseBall ();
+                circleGauge._gaugeValue = 0;
+                powerIncreaseDegree = 1.0f;
+
+            }
+
         } else //raycast가 아무것에도 맞지 않았을 때 
         {
 
             pointer.transform.localPosition = tr.localPosition + new Vector3 (0, 0, range);
             pointer.transform.LookAt (tr.position - pointer.transform.localPosition); //LookAt 은 해당 물체의 방향으로 각도를 틀어준다
-        }
-
-        if (OVRInput.GetUp (OVRInput.Button.PrimaryIndexTrigger))
-        // if(Input.GetButtonUp("Fire1"))
-        {
-
-            ReleaseBall ();
-            circleGauge._gaugeValue = 0;
-            powerIncreaseDegree = 1.0f;
-
         }
 
     }
