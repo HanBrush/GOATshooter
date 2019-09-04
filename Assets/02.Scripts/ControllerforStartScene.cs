@@ -65,7 +65,10 @@ public class ControllerforStartScene : MonoBehaviour {
                     ExecuteEvents.Execute (currButton, data, ExecuteEvents.pointerEnterHandler);
                     
                     ExecuteEvents.Execute (prevButton, data, ExecuteEvents.pointerExitHandler);
+
+                   
                 }
+
                 if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
                     ExecuteEvents.Execute (currButton, data, ExecuteEvents.pointerClickHandler);
 

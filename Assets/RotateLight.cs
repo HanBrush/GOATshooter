@@ -4,27 +4,35 @@ using UnityEngine;
 
 public class RotateLight : MonoBehaviour
 {
-float movingIndex = 0.001f;
+
+
+
+// private int hashIsRedLight;
+
+// private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        
+        // anim = GetComponent<Animator>();
+        // hashIsRedLight = Animator.StringToHash("IsRedLight");
     }
 
     // Update is called once per frame
     void Update()
     {
-        float xAngle = transform.rotation.x + movingIndex;
 
-        Quaternion lt = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z);
-        // Quaternion.rotation = new Quaternion(xAngle, transform.rotation.y, transform.rotation.z);
+        // anim.SetBool(hashIsRedLight, true);
 
-        if(xAngle >= 135.0f){
-            movingIndex = -movingIndex;
-        }
 
-        if(xAngle <= 40.0f){
-            movingIndex = -movingIndex;
-        }
+
+
+        // transform.Rotate(movingIndex,0,0, Space.World);
+
+        // if(transform.rotation.x >=60)
+        // {
+        //     movingIndex = -movingIndex;
+        // }
+
+       
     }
 }

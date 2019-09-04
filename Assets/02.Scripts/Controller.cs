@@ -23,7 +23,7 @@ public class Controller : MonoBehaviour {
     //Raycast 했을 때 충돌한 지점의 점보를 반환할 구조체(Structure - "class와 비슷하지만 가벼운 것")
     private RaycastHit hit;
 
-    public float powerIncreaseDegree = 1.2f;
+    public float powerIncreaseDegree = 1.8f;
 
     GameObject movingB;
 
@@ -32,7 +32,7 @@ public class Controller : MonoBehaviour {
     private GameObject prevButton;
     private GameObject currButton;
 
-    public GameObject lockDisplay;
+
 
     // public GameObject courtLight;
 

@@ -20,6 +20,10 @@ public class ColorChange : MonoBehaviour {
 
     public GameObject lighting;
 
+    public GameObject[] bigSpeakerLight;
+
+    public GameObject[] movingLights;
+
   
 
    
@@ -51,11 +55,21 @@ public class ColorChange : MonoBehaviour {
 
         //농구골대 움직임
         MovingHoop.isMoving = false;
+
+        //중간 움직이는 붉은 조명
+        for(int i = 0; i<3; i++)
+        movingLights[i].SetActive(false);
         
 
         //네온사인
         // for(int neon_i = 0; neon_i<4; neon_i ++){
         // neon[neon_i].SetActive(false);}
+
+        //스피커 위 붉은 라이트닝
+        for(int i=0; i<2; i++){
+            Light bigSL = bigSpeakerLight[i].GetComponent<Light>();
+            bigSL.enabled = false;
+        }
 
     }
 
@@ -75,6 +89,16 @@ lighting.SetActive(false);
 
         //             for(int neon_i = 0; neon_i<4; neon_i ++){
         // neon[neon_i].SetActive(true);}
+
+        
+                        for(int i = 0; i<3; i++)
+        movingLights[i].SetActive(true);
+
+
+                for(int i=0; i<2; i++){
+            Light bigSL = bigSpeakerLight[i].GetComponent<Light>();
+            bigSL.enabled = true;
+                }
 
         }
     

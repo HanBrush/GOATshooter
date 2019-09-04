@@ -30,7 +30,7 @@ public Transform[] ballPos;
         Hashtable ht = new Hashtable();
         ht.Add("y", 0.2f);
         ht.Add("time", 2.0f);
-        ht.Add("easeType", iTween.EaseType.easeOutBounce);
+        ht.Add("easetype", iTween.EaseType.easeOutBounce);
         ht.Add("oncompletetarget", this.gameObject);
         ht.Add("oncomplete", "Dropballs");
 

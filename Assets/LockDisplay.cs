@@ -15,9 +15,11 @@ public class LockDisplay : MonoBehaviour
     public void DisplayLock()
     {
         displayLock.SetActive(true);
-        new WaitForSeconds(2.0f);
+       
+    }
+
+    public void DisappearLock(){
         displayLock.SetActive(false);
-        
     }
 
     // Update is called once per frame
